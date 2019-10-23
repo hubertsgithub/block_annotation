@@ -1,6 +1,7 @@
 # block_annotation
 Block Annotation ICCV 2019 Code
 
+If our work is useful to you, please consider citing:
 ```
 @inproceedings{lin2019block,
   title={Block Annotation: Better Image Annotation with Sub-Image Decomposition},
