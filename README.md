@@ -1,5 +1,12 @@
-# block_annotation
+	# block_annotation
 Block Annotation ICCV 2019 Code
+
+Create highlighted block images to annotate with:
+```
+python create_highlighted_block_images.py
+```
+
+
 
 If our work is useful to you, please consider citing:
 ```
