@@ -10,9 +10,10 @@ python create_highlighted_block_images.py
 Block images can be annotated with existing polygon annotation tools.
 
 Labelme: https://github.com/wkentaro/labelme
+
 OpenSurfaces: http://opensurfaces.cs.cornell.edu/
 
-Our crowdsourcing pipeline is built on OpenSurfaces. 
+For our experiments, we build our crowdsourcing pipeline with OpenSurfaces. 
 
 ### Citation
 If our work is useful to you, please consider citing:
