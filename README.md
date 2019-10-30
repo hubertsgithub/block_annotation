@@ -14,6 +14,7 @@ Labelme: https://github.com/wkentaro/labelme
 OpenSurfaces: http://opensurfaces.cs.cornell.edu/
 
 For our experiments, we build our crowdsourcing pipeline with OpenSurfaces. 
+![alt text](readme_images/sample_interface.png)
 
 ### Citation
 If our work is useful to you, please consider citing:
@@ -25,3 +26,4 @@ If our work is useful to you, please consider citing:
   year={2019}
 }
 ```
+
