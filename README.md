@@ -14,13 +14,17 @@ For example, see:
 - OpenSurfaces: http://opensurfaces.cs.cornell.edu/
 - COCO UI: https://github.com/tylin/coco-ui
 
-For our experiments, we build our crowdsourcing pipeline with OpenSurfaces:
+For our experiments, we build our crowdsourcing pipeline by extending OpenSurfaces:
 
 ![alt text](readme_images/sample_interface.png)
 
 Sample instructions for workers:
 ![alt text](readme_images/sample_instructions_block1.png)
 ![alt text](readme_images/sample_instructions_block2.png)
+
+### Block Inpainting
+
+Code coming soon.
 
 ### Citation
 If our work is useful to you, please consider citing:
