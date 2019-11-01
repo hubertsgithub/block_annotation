@@ -9,9 +9,10 @@ python create_highlighted_block_images.py
 ### Annotation Interface
 Block images can be annotated with existing polygon annotation tools.
 
-Labelme: https://github.com/wkentaro/labelme
-
-OpenSurfaces: http://opensurfaces.cs.cornell.edu/
+For example, see:
+- Labelme: https://github.com/wkentaro/labelme
+- OpenSurfaces: http://opensurfaces.cs.cornell.edu/
+- COCO UI: https://github.com/tylin/coco-ui
 
 For our experiments, we build our crowdsourcing pipeline with OpenSurfaces:
 
