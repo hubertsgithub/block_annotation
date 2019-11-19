@@ -11,7 +11,7 @@ Block images can be annotated with existing polygon annotation tools.
 
 For example, see:
 - Labelme: https://github.com/wkentaro/labelme
-- OpenSurfaces: http://opensurfaces.cs.cornell.edu/
+- OpenSurfaces: https://github.com/seanbell/opensurfaces-segmentation-ui (http://opensurfaces.cs.cornell.edu/)
 - COCO UI: https://github.com/tylin/coco-ui
 
 For our experiments, we build our crowdsourcing pipeline by extending OpenSurfaces:
