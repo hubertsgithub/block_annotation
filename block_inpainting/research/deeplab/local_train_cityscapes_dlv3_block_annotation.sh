@@ -132,19 +132,25 @@ python "${WORK_DIR}"/train.py \
   --decoder_output_stride=4 \
 
 
- # set last_laters_contain_logits_only to True for xception; False for mobilenet
- # set learning rate to 0.0005 for xception65; 0.01 for mobilenet
-
 if [[ ${AWS_BUCKET} = "s3:"* ]]; then
 	ls ${TRAIN_LOGDIR}/model.ckpt-${STOP_ITERATION}* | xargs -Ifile aws s3 cp file ${TRAIN_CHKPT_BACKUP_LOGDIR}/
 else
 	cp -v ${TRAIN_LOGDIR}/model.ckpt-${STOP_ITERATION}* ${TRAIN_CHKPT_BACKUP_LOGDIR}
 fi
 
-# Visualize the results.
+
+##### EVALUATION NOTE #####
+# To eval, run on val split
+# - ensure ground truth labels in val tfrecord are 50% block annotations
+# - set dynamic_block_hint_p=1.0 (so all ground truth labels are given as a hint)
+# - compue mIOU against full val ground truth labels (for convenience, can use compute_miou.py)
+################
+
 VIS_LOGDIR="${VIS_LOGDIR}/${STOP_ITERATION}"
 mkdir -p "${VIS_LOGDIR}"
 
+# Produce full-image labels for training set.
+# Set vis_num_batches=2975 to visualize for all training images.
 python "${WORK_DIR}"/vis.py \
   --logtostderr \
   --vis_split="train" \
@@ -173,24 +179,4 @@ if [[ ${AWS_BUCKET} = "s3:"* ]]; then
 	aws s3 sync ${VIS_LOGDIR} ${TRAIN_CHKPT_BACKUP_LOGDIR}/${STOP_ITERATION}
 fi
 
-## Export the trained checkpoint.
-#CKPT_PATH="${TRAIN_LOGDIR}/model.ckpt-${NUM_ITERATIONS}"
-#EXPORT_PATH="${EXPORT_DIR}/frozen_inference_graph.pb-${NUM_ITERATIONS}"
-#
-#python "${WORK_DIR}"/export_model.py \
-#  --logtostderr \
-#  --checkpoint_path="${CKPT_PATH}" \
-#  --export_path="${EXPORT_PATH}" \
-#  --model_variant="xception_65" \
-#  --atrous_rates=6 \
-#  --atrous_rates=12 \
-#  --atrous_rates=18 \
-#  --output_stride=16 \
-#  --decoder_output_stride=4 \
-#  --num_classes=23 \
-#  --crop_size=513 \
-#  --crop_size=513 \
-#  --inference_scales=1.0 \
 
-# Run inference with the exported checkpoint.
-# Please refer to the provided deeplab_demo.ipynb for an example.
