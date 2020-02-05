@@ -1,0 +1,4 @@
+*.py.backup
+*.pyc
+__init__
+__pycache__
