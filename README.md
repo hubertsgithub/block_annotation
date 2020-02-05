@@ -1,5 +1,9 @@
 ## Block Annotation ICCV 2019
 
+### Block Inpainting
+
+Initial code release Feb 5, 2020. See ```/block_inpainting/README.txt```.
+
 ### Creating Block Images
 Create highlighted block images to annotate:
 ```
@@ -22,9 +26,7 @@ Sample instructions for workers:
 ![alt text](readme_images/sample_instructions_block1.png)
 ![alt text](readme_images/sample_instructions_block2.png)
 
-### Block Inpainting
 
-Code coming soon.
 
 ### Citation
 If our work is useful to you, please consider citing:

@@ -79,6 +79,7 @@ tf.app.flags.DEFINE_string(
 _FOLDERS_MAP = {
     'image': 'leftImg8bit',
     'label': 'gtFine',
+    'label_block': 'gtFine_every_other_block_B10p0.5',
     'label_coarse': 'gtCoarse'
 
 }
@@ -87,6 +88,7 @@ _FOLDERS_MAP = {
 _POSTFIX_MAP = {
     'image': '_leftImg8bit',
     'label': '_gtFine_labelTrainIds',
+    'label_block': '_B10PERC0.5',
     'label_coarse': 'gtCoarse_labelTrainIds',
 
 }
@@ -95,6 +97,7 @@ _POSTFIX_MAP = {
 _DATA_FORMAT_MAP = {
     'image': 'png',
     'label': 'png',
+    'label_block': 'png',
     'label_coarse': 'png',
 }
 
@@ -166,6 +169,8 @@ def _convert_dataset(dataset_split, dataset_name='',
     image_files.extend(_get_files('image', dataset_split))
     if 'coarse' in dataset_name:
         label_files.extend(_get_files('label_coarse', dataset_split))
+    elif 'block' in dataset_name:
+        label_files.extend(_get_files('label_block', dataset_split))
     else:
         label_files.extend(_get_files('label', dataset_split))
 
@@ -291,7 +296,13 @@ def main(unused_argv):
     _NUM_SHARDS = 1
     # Only support converting 'train' and 'val' sets for now.
     for dataset_split in ['train', 'val']:
+        # _convert_dataset(dataset_split=dataset_split,
+                         # num_shards=_NUM_SHARDS,
+                         # shuffle=True,
+                         # shuffle_seed=1234,
+                         # overwrite=True)
         _convert_dataset(dataset_split=dataset_split,
+                         dataset_name=dataset_split+"_block",
                          num_shards=_NUM_SHARDS,
                          shuffle=True,
                          shuffle_seed=1234,
@@ -300,10 +311,6 @@ def main(unused_argv):
 # To evaluate on validation set:
 # -  use run network with block-annotated val labels
 # -  compare predictions with fully annotated val labels
-
-
-
-
 
 
 if __name__ == '__main__':

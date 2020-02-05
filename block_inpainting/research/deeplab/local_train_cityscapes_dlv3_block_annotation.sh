@@ -103,7 +103,7 @@ STOP_ITERATION=$3  # Stop iteration should be max(num_iterations, next_eval_iter
 # To replicate experiment in paper, ground truth label should be a 50% block annotation (i.e., 50% of blocks are labelled per image)
 python "${WORK_DIR}"/train.py \
   --logtostderr \
-  --train_split="train" \
+  --train_split="train_block" \
   --model_variant=${MODEL_VARIANT} \
   --base_learning_rate=${LR} \
   --train_crop_size=769 \
@@ -153,7 +153,7 @@ mkdir -p "${VIS_LOGDIR}"
 # Set vis_num_batches=2975 to visualize for all training images.
 python "${WORK_DIR}"/vis.py \
   --logtostderr \
-  --vis_split="train" \
+  --vis_split="train_block" \
   --model_variant=${MODEL_VARIANT} \
   --vis_crop_size=1025 \
   --vis_crop_size=2049 \
