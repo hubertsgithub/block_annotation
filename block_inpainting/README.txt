@@ -26,10 +26,10 @@ The block inpainting network must be trained on the dataset that is being annota
 	- Provided script will download pretrained deeplab model weights on pascal voc train aug.
 	- cd research/deeplab
 	- bash download_pretrained_model_and_expand_channels.sh
-4. Train network.
+5. Train network.
 	- cd research/deeplab
 	- python loop_train_script.py local_train_cityscapes_dlv3_block_annotation.sh --num_iterations 100000 --eval_interval 10000 --start_iteration 0
-5. See training script for visualization code to inpaint full image labels from block annotated images with trained network. Please refer to contents of local_train_cityscapes_dlv3_block_annotation.sh for more details.
+6. See training script for visualization code to inpaint full image labels from block annotated images with trained network. Please refer to contents of local_train_cityscapes_dlv3_block_annotation.sh for more details.
 
 
 
